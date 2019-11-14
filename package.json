@@ -1,0 +1,36 @@
+{
+  "name": "@dolittle/typescript.webpack.aurelia",
+  "version": "1.0.0-beta.1",
+  "description": "Build tool for webpack-based aurelia applications",
+  "homepage": "https://dolittle.io/",
+  "author": "Dolittle",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dolittle-tools/TypeScript.Webpack.Aurelia.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "Distribution",
+    "Source/*.ts"
+  ],
+  "main": "Distribution/index.js",
+  "types": "Distribution/index.d.ts",
+  "scripts": {
+    "ts:build": "tsc -p tsconfig.json",
+    "build": "yarn clean && yarn ts:build",
+    "clean": "rimraf Distribution",
+    "prepublishOnly": "yarn build"
+  },
+  "dependencies": {
+    "@dolittle/typescript.webpack": "beta",
+    "aurelia-webpack-plugin": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/webpack": "^4.39.8",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.7.2"
+  }
+}
