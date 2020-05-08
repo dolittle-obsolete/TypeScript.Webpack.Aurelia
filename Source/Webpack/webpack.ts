@@ -1,7 +1,6 @@
-/*---------------------------------------------------------------------------------------------
-*  Copyright (c) Dolittle. All rights reserved.
-*  Licensed under the MIT License. See LICENSE in the project root for license information.
-*--------------------------------------------------------------------------------------------*/
+// Copyright (c) Dolittle. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 import { webpack as typescriptWebpack } from '@dolittle/typescript.webpack';
 import { Configuration } from "webpack";
 import path from 'path';
@@ -13,7 +12,7 @@ export function webpack(dirname: string, settingsCallback?: (config: Configurati
         _.entry = {
             app: ['aurelia-bootstrapper']
         };
-        _.plugins!.push(new aureliaPlugin.AureliaPlugin(),
+        _.plugins!.push(new aureliaPlugin.AureliaPlugin({aureliaApp: undefined}),
             new aureliaPlugin.ModuleDependenciesPlugin({
                 'aurelia-testing': ['./compile-spy', './view-spy']
             }));
