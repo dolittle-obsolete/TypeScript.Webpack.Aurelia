@@ -12,10 +12,11 @@ export function webpack(dirname: string, settingsCallback?: (config: Configurati
         _.entry = {
             app: ['aurelia-bootstrapper']
         };
-        _.plugins!.push(new aureliaPlugin.AureliaPlugin({aureliaApp: undefined}),
+        _.plugins!.push(new aureliaPlugin.AureliaPlugin(),
             new aureliaPlugin.ModuleDependenciesPlugin({
                 'aurelia-testing': ['./compile-spy', './view-spy']
             }));
+           
         _.resolve!.alias!['aurelia-binding'] = path.resolve(dirname, 'node_modules/aurelia-binding');
         if (typeof settingsCallback === 'function') settingsCallback(_);
     });
